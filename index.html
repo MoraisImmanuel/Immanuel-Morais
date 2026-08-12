@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Immanuel Morais: Software Developer</title>
-<meta name="description" content="Immanuel P. Morais | Software developer specialising in web development and enterprise systems automation. Based in Windhoek, Namibia.">
+<title>Immanuel Morais — Software Developer</title>
+<meta name="description" content="Immanuel P. Morais — Software developer specialising in web development and enterprise systems automation. Based in Windhoek, Namibia.">
 <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><rect width=%22100%22 height=%22100%22 rx=%2222%22 fill=%22%2310151C%22/><text x=%2250%22 y=%2266%22 font-size=%2254%22 text-anchor=%22middle%22 fill=%22%23C1652E%22 font-family=%22monospace%22>M</text></svg>">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -119,6 +119,66 @@
     display:flex; flex-direction:column; justify-content:center;
     padding-top:90px; padding-bottom:60px;
     position:relative;
+  }
+
+  .hero-grid{
+    display:grid;
+    grid-template-columns:0.92fr 1.08fr;
+    gap:56px;
+    align-items:center;
+  }
+  .hero-text{min-width:0;}
+
+  /* ---------- TERMINAL MOCKUP ---------- */
+  .terminal-mock{
+    background:var(--surface);
+    border:1px solid var(--line);
+    box-shadow:0 30px 60px -20px rgba(0,0,0,0.55);
+    max-width:440px;
+    width:100%;
+    position:relative;
+  }
+  .terminal-mock::before{
+    content:'';
+    position:absolute;
+    inset:-1px;
+    border:1px solid rgba(87,216,196,0.12);
+    pointer-events:none;
+  }
+  .terminal-bar{
+    display:flex; align-items:center; gap:9px;
+    padding:12px 16px;
+    border-bottom:1px solid var(--line);
+    background:var(--surface-2);
+  }
+  .term-dot{width:9px; height:9px; border-radius:50%; display:inline-block;}
+  .term-dot.rust{background:var(--rust);}
+  .term-dot.teal{background:var(--teal);}
+  .term-dot.line{background:var(--line); border:1px solid var(--sand-dim);}
+  .terminal-title{
+    font-family:var(--mono); font-size:11px; color:var(--sand-dim);
+    margin-left:6px; letter-spacing:0.02em;
+  }
+  .terminal-body{
+    padding:24px 22px;
+    min-height:272px;
+    font-family:var(--mono);
+    font-size:12.5px;
+    line-height:1.85;
+  }
+  .term-line{white-space:pre-wrap; word-break:break-word;}
+  .term-prompt{color:var(--rust);}
+  .term-sand{color:var(--sand);}
+  .term-teal{color:var(--teal);}
+  .term-dim{color:var(--sand-dim);}
+  .term-cursor{
+    display:inline-block; width:7px; height:13px;
+    background:var(--teal); margin-left:2px; vertical-align:-2px;
+    animation:blink 1s step-end infinite;
+  }
+  @keyframes blink{ 50%{ opacity:0; } }
+  @media (prefers-reduced-motion: reduce){
+    .term-cursor{animation:none;}
   }
   .hero-kicker{
     font-family:var(--mono); font-size:13px; color:var(--rust);
@@ -300,6 +360,10 @@
     .about-grid{grid-template-columns:1fr; gap:36px;}
     .skill-groups{grid-template-columns:1fr;}
     .projects{grid-template-columns:1fr;}
+    .hero-grid{grid-template-columns:1fr; gap:36px;}
+    .hero-grid{display:flex; flex-direction:column-reverse;}
+    .terminal-mock{max-width:100%;}
+    .terminal-body{min-height:0;}
     section{padding:80px 0;}
     .section-note{text-align:left;}
     .edu-time{text-align:left;}
@@ -324,25 +388,38 @@
       <a href="#experience">Experience</a>
       <a href="#projects">Projects</a>
       <a href="#education">Education</a>
-      <a href="#contact" class="nav-cta"> Contact </a>
+      <a href="#contact" class="nav-cta">Contact</a>
     </div>
   </div>
 </nav>
 
 <header class="hero" id="top">
   <div class="wrap">
-    <div class="hero-kicker"><span class="status-dot"></span>· Windhoek, Namibia</div>
-    <h1 class="name">Immanuel<br>P. <span class="accent">Morais</span></h1>
-    <div class="role-line">software developer web systems &amp; enterprise automation</div>
-    <p class="hero-pitch">I build the software in the middle: React and Laravel applications on one side, SharePoint, Power Automate and Microsoft 365 on the other and the integrations that make them talk to each other.</p>
-    <div class="hero-actions">
-      <a href="#projects" class="btn btn-primary">View the work →</a>
-      <a href="#contact" class="btn btn-ghost">Get in touch</a>
-    </div>
-    <div class="hero-meta">
-      <div><b>Software Development Intern</b>NAMCOL, 2025–2026</div>
-      <div><b>Frontend Developer</b>Devlapan, 2026</div>
-      <div><b>BSc Computer Science</b>NUST, Software Development</div>
+    <div class="hero-grid">
+      <div class="terminal-mock" aria-hidden="true">
+        <div class="terminal-bar">
+          <span class="term-dot rust"></span>
+          <span class="term-dot teal"></span>
+          <span class="term-dot line"></span>
+          <span class="terminal-title">workflow.deploy — power-automate</span>
+        </div>
+        <div class="terminal-body" id="terminalBody"></div>
+      </div>
+      <div class="hero-text">
+        <div class="hero-kicker"><span class="status-dot"></span>Available for opportunities · Windhoek, Namibia</div>
+        <h1 class="name">Immanuel<br>P. <span class="accent">Morais</span></h1>
+        <div class="role-line">// software developer — web systems &amp; enterprise automation</div>
+        <p class="hero-pitch">I build the software in the middle: React and Laravel applications on one side, SharePoint, Power Automate and Microsoft 365 on the other — and the integrations that make them talk to each other.</p>
+        <div class="hero-actions">
+          <a href="#projects" class="btn btn-primary">View the work →</a>
+          <a href="#contact" class="btn btn-ghost">Get in touch</a>
+        </div>
+        <div class="hero-meta">
+          <div><b>Software Development Intern</b>NAMCOL, 2025–2026</div>
+          <div><b>Frontend Developer</b>Devlapan, 2026</div>
+          <div><b>BSc Computer Science</b>NUST, Software Development</div>
+        </div>
+      </div>
     </div>
   </div>
 </header>
@@ -351,7 +428,7 @@
   <div class="wrap">
     <div class="eyebrow">Profile</div>
     <div class="about-grid">
-      <p class="about-lead">I have shipped multiple projects and systems across web development and enterprise automation.</p>
+      <p class="about-lead">A Computer Science graduate who's spent the last year shipping real systems — not just coursework — across web development and enterprise automation.</p>
       <div>
         <div class="about-body">
           <p>My work sits at the intersection of building software and improving how organisations run. I design and build web applications with React and Laravel, and I automate business processes with Microsoft Power Automate, SharePoint and the Power Platform — translating what stakeholders actually need into working systems and clear documentation.</p>
@@ -375,7 +452,7 @@
         <div class="eyebrow">Stack</div>
         <h2 class="title">Tools I build with</h2>
       </div>
-      <p class="section-note">Grouped by where each tool sits in a project from interface to infrastructure.</p>
+      <p class="section-note">Grouped by where each tool sits in a project — from interface to infrastructure.</p>
     </div>
     <div class="skill-groups">
       <div class="skill-block">
@@ -543,6 +620,72 @@
     links.classList.remove('open');
     toggle.setAttribute('aria-expanded', 'false');
   }));
+
+  // ---------- Terminal typewriter ----------
+  (function(){
+    const body = document.getElementById('terminalBody');
+    if(!body) return;
+    const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+    const script = [
+      [{t:'$ ', c:'term-prompt'}, {t:'git log --oneline -3', c:'term-sand'}],
+      [{t:'a3f9e2c ', c:'term-teal'}, {t:'feat: staff directory via Graph API', c:'term-dim'}],
+      [{t:'19e7d4a ', c:'term-teal'}, {t:'feat: automate onboarding workflow', c:'term-dim'}],
+      [{t:'c88b204 ', c:'term-teal'}, {t:'fix: SharePoint trigger retry logic', c:'term-dim'}],
+      [{t:'\u00A0', c:'term-dim'}],
+      [{t:'$ ', c:'term-prompt'}, {t:'flow status --env production', c:'term-sand'}],
+      [{t:'\u25B8 ', c:'term-rust'}, {t:'Trigger  When item created (SharePoint)', c:'term-dim'}],
+      [{t:'\u25B8 ', c:'term-rust'}, {t:'Action   Assign approver \u2192 notify via Teams', c:'term-dim'}],
+      [{t:'\u25B8 ', c:'term-rust'}, {t:'Action   Sync profile \u2192 Entra ID', c:'term-dim'}],
+      [{t:'\u2714 ', c:'term-teal'}, {t:'Published \u00B7 0 errors', c:'term-sand'}]
+    ];
+
+    function renderStatic(){
+      body.innerHTML = '';
+      script.forEach(segments => {
+        const line = document.createElement('div');
+        line.className = 'term-line';
+        segments.forEach(seg => {
+          const span = document.createElement('span');
+          span.className = seg.c;
+          span.textContent = seg.t;
+          line.appendChild(span);
+        });
+        body.appendChild(line);
+      });
+    }
+
+    async function typeLoop(){
+      while(true){
+        body.innerHTML = '';
+        for(const segments of script){
+          const line = document.createElement('div');
+          line.className = 'term-line';
+          body.appendChild(line);
+          for(const seg of segments){
+            const span = document.createElement('span');
+            span.className = seg.c;
+            line.appendChild(span);
+            for(const ch of seg.t){
+              span.textContent += ch;
+              await new Promise(r => setTimeout(r, 14));
+            }
+          }
+          await new Promise(r => setTimeout(r, 170));
+        }
+        const cursor = document.createElement('span');
+        cursor.className = 'term-cursor';
+        body.lastChild.appendChild(cursor);
+        await new Promise(r => setTimeout(r, 3200));
+      }
+    }
+
+    if(reduceMotion){
+      renderStatic();
+    } else {
+      typeLoop();
+    }
+  })();
 </script>
 
 </body>
