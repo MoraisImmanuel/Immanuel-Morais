@@ -1,0 +1,549 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Immanuel Morais: Software Developer</title>
+<meta name="description" content="Immanuel P. Morais | Software developer specialising in web development and enterprise systems automation. Based in Windhoek, Namibia.">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><rect width=%22100%22 height=%22100%22 rx=%2222%22 fill=%22%2310151C%22/><text x=%2250%22 y=%2266%22 font-size=%2254%22 text-anchor=%22middle%22 fill=%22%23C1652E%22 font-family=%22monospace%22>M</text></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#0F141B;
+    --surface:#182130;
+    --surface-2:#1E293A;
+    --line:#2B3A50;
+    --sand:#E9E1D2;
+    --sand-dim:#A7ACB6;
+    --rust:#C96A34;
+    --rust-dim:#8C4B24;
+    --teal:#57D8C4;
+    --teal-dim:#2E7C71;
+    --radius:2px;
+    --display:'Space Grotesk', sans-serif;
+    --body:'Inter', sans-serif;
+    --mono:'JetBrains Mono', monospace;
+  }
+
+  *{box-sizing:border-box; margin:0; padding:0;}
+
+  html{scroll-behavior:smooth;}
+
+  body{
+    background:var(--ink);
+    color:var(--sand);
+    font-family:var(--body);
+    line-height:1.6;
+    -webkit-font-smoothing:antialiased;
+    overflow-x:hidden;
+  }
+
+  body::before{
+    content:'';
+    position:fixed;
+    inset:0;
+    background-image:
+      linear-gradient(var(--line) 1px, transparent 1px),
+      linear-gradient(90deg, var(--line) 1px, transparent 1px);
+    background-size:64px 64px;
+    opacity:0.06;
+    pointer-events:none;
+    z-index:0;
+  }
+
+  a{color:inherit; text-decoration:none;}
+  ::selection{background:var(--rust); color:var(--ink);}
+
+  .wrap{max-width:1040px; margin:0 auto; padding:0 32px; position:relative; z-index:1;}
+
+  .eyebrow{
+    font-family:var(--mono);
+    font-size:12.5px;
+    letter-spacing:0.14em;
+    text-transform:uppercase;
+    color:var(--teal);
+    display:flex;
+    align-items:center;
+    gap:10px;
+    margin-bottom:22px;
+  }
+  .eyebrow::before{
+    content:'';
+    width:22px; height:1px;
+    background:var(--teal);
+    display:inline-block;
+  }
+
+  /* ---------- NAV ---------- */
+  nav{
+    position:fixed; top:0; left:0; right:0; z-index:50;
+    background:rgba(15,20,27,0.82);
+    backdrop-filter:blur(10px);
+    border-bottom:1px solid var(--line);
+  }
+  .nav-inner{
+    max-width:1040px; margin:0 auto; padding:16px 32px;
+    display:flex; align-items:center; justify-content:space-between;
+  }
+  .logo{
+    font-family:var(--mono); font-size:15px; font-weight:500;
+    color:var(--sand); letter-spacing:0.02em;
+  }
+  .logo span{color:var(--rust);}
+  .nav-links{display:flex; align-items:center; gap:30px;}
+  .nav-links a{
+    font-family:var(--mono); font-size:12.5px; letter-spacing:0.05em;
+    color:var(--sand-dim); text-transform:uppercase;
+    position:relative; padding:4px 0;
+    transition:color 0.2s ease;
+  }
+  .nav-links a:hover, .nav-links a:focus-visible{color:var(--sand);}
+  .nav-links a::after{
+    content:''; position:absolute; left:0; bottom:0; height:1px; width:0;
+    background:var(--rust); transition:width 0.25s ease;
+  }
+  .nav-links a:hover::after{width:100%;}
+  .nav-cta{
+    font-family:var(--mono); font-size:12px; letter-spacing:0.05em;
+    border:1px solid var(--rust); color:var(--rust) !important;
+    padding:8px 14px; text-transform:uppercase;
+  }
+  .nav-cta:hover{background:var(--rust); color:var(--ink) !important;}
+  .nav-toggle{display:none;}
+
+  /* ---------- HERO ---------- */
+  header.hero{
+    min-height:100vh;
+    display:flex; flex-direction:column; justify-content:center;
+    padding-top:90px; padding-bottom:60px;
+    position:relative;
+  }
+  .hero-kicker{
+    font-family:var(--mono); font-size:13px; color:var(--rust);
+    letter-spacing:0.14em; text-transform:uppercase; margin-bottom:26px;
+    display:flex; align-items:center; gap:12px;
+  }
+  .status-dot{
+    width:7px; height:7px; border-radius:50%; background:var(--teal);
+    box-shadow:0 0 0 0 rgba(87,216,196,0.6);
+    animation:pulse 2.4s infinite;
+  }
+  @keyframes pulse{
+    0%{box-shadow:0 0 0 0 rgba(87,216,196,0.45);}
+    70%{box-shadow:0 0 0 9px rgba(87,216,196,0);}
+    100%{box-shadow:0 0 0 0 rgba(87,216,196,0);}
+  }
+
+  h1.name{
+    font-family:var(--display);
+    font-weight:700;
+    font-size:clamp(44px, 8vw, 92px);
+    line-height:0.98;
+    letter-spacing:-0.01em;
+    color:var(--sand);
+    max-width:900px;
+  }
+  h1.name .accent{color:var(--rust); font-style:normal;}
+
+  .role-line{
+    font-family:var(--mono);
+    font-size:clamp(14px, 2vw, 19px);
+    color:var(--teal);
+    margin-top:22px;
+    letter-spacing:0.01em;
+  }
+
+  .hero-pitch{
+    max-width:620px;
+    font-size:17px;
+    color:var(--sand-dim);
+    margin-top:24px;
+  }
+
+  .hero-actions{
+    margin-top:42px; display:flex; gap:16px; flex-wrap:wrap; align-items:center;
+  }
+  .btn{
+    font-family:var(--mono); font-size:13px; letter-spacing:0.04em;
+    padding:13px 22px; text-transform:uppercase;
+    border:1px solid var(--line);
+    display:inline-flex; align-items:center; gap:8px;
+    transition:all 0.2s ease;
+  }
+  .btn-primary{background:var(--rust); border-color:var(--rust); color:var(--ink);}
+  .btn-primary:hover{background:transparent; color:var(--rust);}
+  .btn-ghost{color:var(--sand-dim);}
+  .btn-ghost:hover{color:var(--sand); border-color:var(--sand-dim);}
+
+  .hero-meta{
+    margin-top:64px; display:flex; gap:38px; flex-wrap:wrap;
+    font-family:var(--mono); font-size:12.5px; color:var(--sand-dim);
+  }
+  .hero-meta div{display:flex; flex-direction:column; gap:4px;}
+  .hero-meta b{color:var(--sand); font-weight:500; font-size:13px;}
+
+  /* ---------- SECTION shared ---------- */
+  section{padding:120px 0; border-top:1px solid var(--line); position:relative;}
+  .section-head{display:flex; justify-content:space-between; align-items:flex-end; margin-bottom:56px; flex-wrap:wrap; gap:20px;}
+  h2.title{
+    font-family:var(--display); font-weight:600;
+    font-size:clamp(28px, 4vw, 42px); color:var(--sand);
+    letter-spacing:-0.01em;
+  }
+  .section-note{font-family:var(--mono); font-size:12.5px; color:var(--sand-dim); max-width:260px; text-align:right;}
+
+  /* ---------- ABOUT ---------- */
+  .about-grid{display:grid; grid-template-columns:1fr 1fr; gap:60px; align-items:start;}
+  .about-lead{
+    font-family:var(--display); font-size:clamp(20px,2.6vw,27px);
+    color:var(--sand); font-weight:500; line-height:1.4;
+  }
+  .about-body{color:var(--sand-dim); font-size:15.5px;}
+  .about-body p + p{margin-top:16px;}
+  .facts{margin-top:32px; display:flex; flex-direction:column; gap:14px;}
+  .facts div{display:flex; justify-content:space-between; border-bottom:1px dashed var(--line); padding-bottom:12px; font-family:var(--mono); font-size:13px;}
+  .facts span:first-child{color:var(--sand-dim); text-transform:uppercase; letter-spacing:0.05em; font-size:11.5px;}
+  .facts span:last-child{color:var(--sand);}
+
+  /* ---------- SKILLS ---------- */
+  .skill-groups{display:grid; grid-template-columns:repeat(2, 1fr); gap:1px; background:var(--line); border:1px solid var(--line);}
+  .skill-block{background:var(--ink); padding:30px 32px;}
+  .skill-block h3{
+    font-family:var(--mono); font-size:12px; letter-spacing:0.1em; text-transform:uppercase;
+    color:var(--rust); margin-bottom:16px;
+  }
+  .chip-row{display:flex; flex-wrap:wrap; gap:8px;}
+  .chip{
+    font-family:var(--mono); font-size:12.5px; color:var(--sand-dim);
+    border:1px solid var(--line); padding:6px 11px;
+    transition:all 0.2s ease;
+  }
+  .chip:hover{color:var(--sand); border-color:var(--teal-dim);}
+
+  /* ---------- EXPERIENCE PIPELINE ---------- */
+  .pipeline{position:relative; padding-left:46px;}
+  .pipeline-track{
+    position:absolute; left:6px; top:6px; bottom:6px; width:1px;
+    background:var(--line);
+  }
+  .pipeline-flow{
+    position:absolute; left:6px; top:6px; width:1px; height:100%;
+    background:linear-gradient(var(--teal), transparent);
+    background-size:1px 40px;
+    background-repeat:repeat-y;
+    animation:flow 3s linear infinite;
+    opacity:0.7;
+  }
+  @keyframes flow{ to{ background-position:0 -80px; } }
+
+  .job{position:relative; padding-bottom:64px;}
+  .job:last-child{padding-bottom:0;}
+  .job-node{
+    position:absolute; left:-46px; top:4px;
+    width:13px; height:13px; border-radius:50%;
+    background:var(--ink); border:2px solid var(--rust);
+  }
+  .job-node.alt{border-color:var(--teal);}
+  .job-head{display:flex; justify-content:space-between; flex-wrap:wrap; gap:8px; margin-bottom:10px;}
+  .job-role{font-family:var(--display); font-size:21px; font-weight:600; color:var(--sand);}
+  .job-role span{color:var(--rust);}
+  .job-time{font-family:var(--mono); font-size:12px; color:var(--sand-dim); white-space:nowrap;}
+  .job-list{margin-top:14px; display:flex; flex-direction:column; gap:9px;}
+  .job-list li{list-style:none; padding-left:20px; position:relative; color:var(--sand-dim); font-size:14.5px;}
+  .job-list li::before{content:'→'; position:absolute; left:0; color:var(--teal); font-family:var(--mono); font-size:13px;}
+
+  /* ---------- PROJECTS ---------- */
+  .projects{display:grid; grid-template-columns:1fr 1fr; gap:1px; background:var(--line); border:1px solid var(--line);}
+  .project{background:var(--ink); padding:36px; display:flex; flex-direction:column; transition:background 0.25s ease;}
+  .project:hover{background:var(--surface);}
+  .project-tag{font-family:var(--mono); font-size:11px; letter-spacing:0.08em; text-transform:uppercase; color:var(--teal); margin-bottom:14px;}
+  .project h3{font-family:var(--display); font-size:22px; color:var(--sand); margin-bottom:12px; font-weight:600;}
+  .project p{color:var(--sand-dim); font-size:14.5px; flex-grow:1;}
+  .project-stack{display:flex; flex-wrap:wrap; gap:7px; margin-top:20px; margin-bottom:20px;}
+  .project-stack span{font-family:var(--mono); font-size:11px; color:var(--sand-dim); border:1px solid var(--line); padding:4px 8px;}
+  .project-link{font-family:var(--mono); font-size:12.5px; color:var(--rust); display:inline-flex; align-items:center; gap:6px; margin-top:auto;}
+  .project-link:hover{color:var(--sand);}
+
+  /* ---------- EDUCATION ---------- */
+  .edu-card{
+    border:1px solid var(--line); padding:36px;
+    display:flex; justify-content:space-between; flex-wrap:wrap; gap:20px; align-items:center;
+  }
+  .edu-card h3{font-family:var(--display); font-size:22px; color:var(--sand); font-weight:600; margin-bottom:8px;}
+  .edu-card p{color:var(--sand-dim); font-size:14.5px;}
+  .edu-time{font-family:var(--mono); font-size:12.5px; color:var(--teal); text-align:right;}
+
+  /* ---------- CONTACT / FOOTER ---------- */
+  footer{padding:120px 0 60px; border-top:1px solid var(--line);}
+  .contact-inner{text-align:center;}
+  .contact-inner h2{
+    font-family:var(--display); font-weight:700;
+    font-size:clamp(32px,6vw,60px); color:var(--sand); margin-bottom:22px;
+  }
+  .contact-inner h2 span{color:var(--rust);}
+  .contact-inner p{color:var(--sand-dim); max-width:480px; margin:0 auto 36px;}
+  .contact-links{display:flex; justify-content:center; gap:18px; flex-wrap:wrap;}
+  .footer-bottom{
+    margin-top:100px; padding-top:26px; border-top:1px solid var(--line);
+    display:flex; justify-content:space-between; flex-wrap:wrap; gap:10px;
+    font-family:var(--mono); font-size:11.5px; color:var(--sand-dim);
+  }
+
+  /* ---------- RESPONSIVE ---------- */
+  @media (max-width:760px){
+    .wrap{padding:0 22px;}
+    .nav-links{position:fixed; top:60px; right:0; left:0; background:var(--ink); border-bottom:1px solid var(--line); flex-direction:column; align-items:flex-start; padding:20px 22px; gap:18px; transform:translateY(-130%); transition:transform 0.3s ease; }
+    .nav-links.open{transform:translateY(0);}
+    .nav-toggle{display:block; background:none; border:1px solid var(--line); color:var(--sand); font-family:var(--mono); font-size:12px; padding:8px 12px;}
+    .about-grid{grid-template-columns:1fr; gap:36px;}
+    .skill-groups{grid-template-columns:1fr;}
+    .projects{grid-template-columns:1fr;}
+    section{padding:80px 0;}
+    .section-note{text-align:left;}
+    .edu-time{text-align:left;}
+  }
+
+  @media (prefers-reduced-motion: reduce){
+    *{animation:none !important; transition:none !important; scroll-behavior:auto !important;}
+  }
+
+  :focus-visible{outline:2px solid var(--teal); outline-offset:3px;}
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-inner">
+    <a href="#top" class="logo">immanuel<span>.</span>morais</a>
+    <button class="nav-toggle" id="navToggle" aria-label="Toggle menu" aria-expanded="false">MENU</button>
+    <div class="nav-links" id="navLinks">
+      <a href="#about">About</a>
+      <a href="#skills">Stack</a>
+      <a href="#experience">Experience</a>
+      <a href="#projects">Projects</a>
+      <a href="#education">Education</a>
+      <a href="#contact" class="nav-cta"> Contact </a>
+    </div>
+  </div>
+</nav>
+
+<header class="hero" id="top">
+  <div class="wrap">
+    <div class="hero-kicker"><span class="status-dot"></span>· Windhoek, Namibia</div>
+    <h1 class="name">Immanuel<br>P. <span class="accent">Morais</span></h1>
+    <div class="role-line">software developer web systems &amp; enterprise automation</div>
+    <p class="hero-pitch">I build the software in the middle: React and Laravel applications on one side, SharePoint, Power Automate and Microsoft 365 on the other and the integrations that make them talk to each other.</p>
+    <div class="hero-actions">
+      <a href="#projects" class="btn btn-primary">View the work →</a>
+      <a href="#contact" class="btn btn-ghost">Get in touch</a>
+    </div>
+    <div class="hero-meta">
+      <div><b>Software Development Intern</b>NAMCOL, 2025–2026</div>
+      <div><b>Frontend Developer</b>Devlapan, 2026</div>
+      <div><b>BSc Computer Science</b>NUST, Software Development</div>
+    </div>
+  </div>
+</header>
+
+<section id="about">
+  <div class="wrap">
+    <div class="eyebrow">Profile</div>
+    <div class="about-grid">
+      <p class="about-lead">I have shipped multiple projects and systems across web development and enterprise automation.</p>
+      <div>
+        <div class="about-body">
+          <p>My work sits at the intersection of building software and improving how organisations run. I design and build web applications with React and Laravel, and I automate business processes with Microsoft Power Automate, SharePoint and the Power Platform — translating what stakeholders actually need into working systems and clear documentation.</p>
+          <p>I'm driven by digital transformation: taking a manual, paper-based, or fragmented process and turning it into something reliable, searchable and fast.</p>
+        </div>
+        <div class="facts">
+          <div><span>Based in</span><span>Windhoek, Namibia</span></div>
+          <div><span>Focus</span><span>Web Dev · Automation · Systems Integration</span></div>
+          <div><span>Education</span><span>NUST — BSc CS, Software Development</span></div>
+          <div><span>Open to</span><span>Software / BA / ICT roles</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="skills">
+  <div class="wrap">
+    <div class="section-head">
+      <div>
+        <div class="eyebrow">Stack</div>
+        <h2 class="title">Tools I build with</h2>
+      </div>
+      <p class="section-note">Grouped by where each tool sits in a project from interface to infrastructure.</p>
+    </div>
+    <div class="skill-groups">
+      <div class="skill-block">
+        <h3>Languages &amp; Frameworks</h3>
+        <div class="chip-row">
+          <span class="chip">Java</span><span class="chip">PHP / Laravel</span><span class="chip">JavaScript</span>
+          <span class="chip">React</span><span class="chip">Node.js</span><span class="chip">HTML &amp; CSS</span>
+          <span class="chip">Tailwind CSS</span>
+        </div>
+      </div>
+      <div class="skill-block">
+        <h3>Cloud &amp; Microsoft 365</h3>
+        <div class="chip-row">
+          <span class="chip">Cloudflare Pages &amp; Workers</span><span class="chip">Power Automate</span>
+          <span class="chip">SharePoint</span><span class="chip">Active Directory &amp; Entra ID</span>
+          <span class="chip">Exchange Admin Center</span><span class="chip">Microsoft Graph API</span>
+        </div>
+      </div>
+      <div class="skill-block">
+        <h3>Data &amp; Infrastructure</h3>
+        <div class="chip-row">
+          <span class="chip">MySQL</span><span class="chip">PostgreSQL</span><span class="chip">Supabase</span>
+          <span class="chip">Linux</span><span class="chip">cPanel</span><span class="chip">Pandas / NumPy / Scikit-learn</span>
+        </div>
+      </div>
+      <div class="skill-block">
+        <h3>Practice &amp; Tooling</h3>
+        <div class="chip-row">
+          <span class="chip">Git &amp; GitHub</span><span class="chip">VS Code</span><span class="chip">Figma</span>
+          <span class="chip">Agile / Scrum</span><span class="chip">Requirements &amp; Process Mapping</span><span class="chip">Software Testing</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="experience">
+  <div class="wrap">
+    <div class="section-head">
+      <div>
+        <div class="eyebrow">Experience</div>
+        <h2 class="title">Where I've been building</h2>
+      </div>
+      <p class="section-note">Two roles running in parallel through 2026 — enterprise systems by day, product frontend by evening.</p>
+    </div>
+
+    <div class="pipeline">
+      <div class="pipeline-track"></div>
+      <div class="pipeline-flow"></div>
+
+      <div class="job">
+        <div class="job-node"></div>
+        <div class="job-head">
+          <div class="job-role">Software Development Intern <span>· NAMCOL</span></div>
+          <div class="job-time">JUL 2025 — AUG 2026 · 1 YR 1 MO</div>
+        </div>
+        <ul class="job-list">
+          <li>Designed and developed the company-wide intranet, improving internal communication and process visibility across departments.</li>
+          <li>Built a web staff directory integrated with Microsoft Entra ID via the Microsoft Graph API, letting staff search, filter, view and export profiles as digital business cards.</li>
+          <li>Designed and maintained multiple Power Automate workflows tied to SharePoint Lists, Libraries and Forms, automating a range of organisational business processes.</li>
+          <li>Managed and maintained the organisation's WordPress site, and provided day-to-day ICT support to end users.</li>
+          <li>Configured, tested and documented a Linux-based Moodle Virtual Programming Lab (VPL) execution server for the institution's e-learning programming activities.</li>
+        </ul>
+      </div>
+
+      <div class="job">
+        <div class="job-node alt"></div>
+        <div class="job-head">
+          <div class="job-role">Frontend Developer <span>· Devlapan</span></div>
+          <div class="job-time">FEB 2026 — AUG 2026 · 7 MOS</div>
+        </div>
+        <ul class="job-list">
+          <li>Built and maintained the company website with React, Vite, Tailwind CSS and React Router, including SEO infrastructure (Open Graph, AI crawlability, sitemaps) and PWA support.</li>
+          <li>Designed and implemented a cart and checkout flow integrated with the PayToday (Nedbank) payment gateway.</li>
+          <li>Developed a full-stack internal purchase-records admin dashboard — React/Vite frontend, Laravel backend — including data modelling and deployment.</li>
+        </ul>
+      </div>
+
+      <div class="job">
+        <div class="job-node"></div>
+        <div class="job-head">
+          <div class="job-role">Learning Coach <span>· YYENI AI / NIRO Academy</span></div>
+          <div class="job-time">FEB 2025 — APR 2025</div>
+        </div>
+        <ul class="job-list">
+          <li>Set learning goals for each learner and tracked progress against them.</li>
+          <li>Kept learners accountable and motivated, supporting engagement through to completion.</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="projects">
+  <div class="wrap">
+    <div class="section-head">
+      <div>
+        <div class="eyebrow">Selected Projects</div>
+        <h2 class="title">Things I've shipped</h2>
+      </div>
+      <p class="section-note">A learning platform coordinated end-to-end, and infrastructure built from the command line up.</p>
+    </div>
+    <div class="projects">
+      <div class="project">
+        <div class="project-tag">Team Project · Project Management</div>
+        <h3>ASLN Trajektorry-Hub</h3>
+        <p>An AI-enhanced support platform for Grade 11–12 learners. I coordinated frontend, backend, QA, content and AI specialists using Scrum — turning project requirements into sprint plans and functional tasks, and keeping delivery aligned with stakeholder objectives.</p>
+        <div class="project-stack"><span>Scrum</span><span>Cross-functional coordination</span><span>Delivery tracking</span></div>
+        <a class="project-link" href="https://aslevelnamibia.pages.dev/" target="_blank" rel="noopener">View live site →</a>
+      </div>
+      <div class="project">
+        <div class="project-tag">Team Project · Linux Infrastructure</div>
+        <h3>VPL Execution Server Deployment</h3>
+        <p>Deployed and configured a VM-based Virtual Programming Lab environment that securely runs programming exercises submitted through Moodle — covering install, service and network configuration, integration testing, and operational documentation for future maintenance.</p>
+        <div class="project-stack"><span>Linux</span><span>Moodle VPL</span><span>VPL Jail System</span></div>
+        <span class="project-link">Internal deployment · NUST e-learning</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="education">
+  <div class="wrap">
+    <div class="section-head">
+      <div>
+        <div class="eyebrow">Education</div>
+        <h2 class="title">Foundations</h2>
+      </div>
+    </div>
+    <div class="edu-card">
+      <div>
+        <h3>Bachelor of Computer Science — Software Development</h3>
+        <p>Namibia University of Science &amp; Technology (NUST)</p>
+      </div>
+      <div class="edu-time">2023 – 2025<br>Graduated May 2026</div>
+    </div>
+  </div>
+</section>
+
+<footer id="contact">
+  <div class="wrap contact-inner">
+    <div class="eyebrow" style="justify-content:center;">Get in touch</div>
+    <h2>Let's build <span>something.</span></h2>
+    <p>Open to software development, business analyst and ICT roles. I reply quickly by email — feel free to reach out.</p>
+    <div class="contact-links">
+      <a href="mailto:immanuelpenouwa@gmail.com" class="btn btn-primary">immanuelpenouwa@gmail.com</a>
+      <a href="https://github.com/MoraisImmanuel" target="_blank" rel="noopener" class="btn btn-ghost">GitHub ↗</a>
+      <a href="https://www.linkedin.com/in/immanuel-morais" target="_blank" rel="noopener" class="btn btn-ghost">LinkedIn ↗</a>
+    </div>
+    <div class="footer-bottom">
+      <span>Immanuel P. Morais — Windhoek, Namibia</span>
+      <span>+264 81 287 9765 · References available on request</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+  const toggle = document.getElementById('navToggle');
+  const links = document.getElementById('navLinks');
+  toggle.addEventListener('click', () => {
+    const isOpen = links.classList.toggle('open');
+    toggle.setAttribute('aria-expanded', isOpen);
+  });
+  links.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
+    links.classList.remove('open');
+    toggle.setAttribute('aria-expanded', 'false');
+  }));
+</script>
+
+</body>
+</html>
