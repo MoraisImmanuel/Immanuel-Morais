@@ -123,7 +123,7 @@
 
   .hero-grid{
     display:grid;
-    grid-template-columns:0.92fr 1.08fr;
+    grid-template-columns:1.08fr 0.92fr;
     gap:56px;
     align-items:center;
   }
@@ -361,7 +361,6 @@
     .skill-groups{grid-template-columns:1fr;}
     .projects{grid-template-columns:1fr;}
     .hero-grid{grid-template-columns:1fr; gap:36px;}
-    .hero-grid{display:flex; flex-direction:column-reverse;}
     .terminal-mock{max-width:100%;}
     .terminal-body{min-height:0;}
     section{padding:80px 0;}
@@ -396,15 +395,6 @@
 <header class="hero" id="top">
   <div class="wrap">
     <div class="hero-grid">
-      <div class="terminal-mock" aria-hidden="true">
-        <div class="terminal-bar">
-          <span class="term-dot rust"></span>
-          <span class="term-dot teal"></span>
-          <span class="term-dot line"></span>
-          <span class="terminal-title">workflow.deploy — power-automate</span>
-        </div>
-        <div class="terminal-body" id="terminalBody"></div>
-      </div>
       <div class="hero-text">
         <div class="hero-kicker"><span class="status-dot"></span>Available for opportunities · Windhoek, Namibia</div>
         <h1 class="name">Immanuel<br>P. <span class="accent">Morais</span></h1>
@@ -419,6 +409,15 @@
           <div><b>Frontend Developer</b>Devlapan, 2026</div>
           <div><b>BSc Computer Science</b>NUST, Software Development</div>
         </div>
+      </div>
+      <div class="terminal-mock" aria-hidden="true">
+        <div class="terminal-bar">
+          <span class="term-dot rust"></span>
+          <span class="term-dot teal"></span>
+          <span class="term-dot line"></span>
+          <span class="terminal-title">workflow.deploy — power-automate</span>
+        </div>
+        <div class="terminal-body" id="terminalBody"></div>
       </div>
     </div>
   </div>
