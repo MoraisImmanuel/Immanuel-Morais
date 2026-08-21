@@ -400,7 +400,7 @@
     <div class="hero-grid">
       <div class="hero-text">
         <h1 class="name">Immanuel<br>P. <span class="accent">Morais</span></h1>
-        <p class="hero-pitch">I build the software in the middle: React and Laravel applications on one side, SharePoint, Power Automate and Microsoft 365 on the other and the integrations that make them talk to each other.</p>
+        <p class="hero-pitch">I build modern web applications with React and Laravel, creating clear, useful experiences from idea to deployment. I also connect those applications to SharePoint, Power Automate and Microsoft 365 to help organisations work smarter.</p>
         <div class="hero-actions">
           <a href="#projects" class="btn btn-primary">View the work →</a>
           <a href="#contact" class="btn btn-ghost">Get in touch</a>
@@ -416,7 +416,7 @@
           <span class="term-dot rust"></span>
           <span class="term-dot teal"></span>
           <span class="term-dot line"></span>
-          <span class="terminal-title">workflow.deploy — power-automate</span>
+          <span class="terminal-title">fullstack.deploy — web + automation</span>
         </div>
         <div class="terminal-body" id="terminalBody"></div>
       </div>
@@ -643,15 +643,15 @@
 
     const script = [
       [{t:'$ ', c:'term-prompt'}, {t:'git log --oneline -3', c:'term-sand'}],
-      [{t:'a3f9e2c ', c:'term-teal'}, {t:'feat: staff directory via Graph API', c:'term-dim'}],
-      [{t:'19e7d4a ', c:'term-teal'}, {t:'feat: automate onboarding workflow', c:'term-dim'}],
-      [{t:'c88b204 ', c:'term-teal'}, {t:'fix: SharePoint trigger retry logic', c:'term-dim'}],
+      [{t:'a3f9e2c ', c:'term-teal'}, {t:'feat: ship React frontend experience', c:'term-dim'}],
+      [{t:'19e7d4a ', c:'term-teal'}, {t:'feat: build Laravel booking API', c:'term-dim'}],
+      [{t:'c88b204 ', c:'term-teal'}, {t:'feat: automate onboarding workflow', c:'term-dim'}],
       [{t:'\u00A0', c:'term-dim'}],
-      [{t:'$ ', c:'term-prompt'}, {t:'flow status --env production', c:'term-sand'}],
-      [{t:'\u25B8 ', c:'term-rust'}, {t:'Trigger  When item created (SharePoint)', c:'term-dim'}],
-      [{t:'\u25B8 ', c:'term-rust'}, {t:'Action   Assign approver \u2192 notify via Teams', c:'term-dim'}],
-      [{t:'\u25B8 ', c:'term-rust'}, {t:'Action   Sync profile \u2192 Entra ID', c:'term-dim'}],
-      [{t:'\u2714 ', c:'term-teal'}, {t:'Published \u00B7 0 errors', c:'term-sand'}]
+      [{t:'$ ', c:'term-prompt'}, {t:'npm run build --production', c:'term-sand'}],
+      [{t:'\u25B8 ', c:'term-rust'}, {t:'React frontend   compiled successfully', c:'term-dim'}],
+      [{t:'\u25B8 ', c:'term-rust'}, {t:'Laravel API     connected to database', c:'term-dim'}],
+      [{t:'\u25B8 ', c:'term-rust'}, {t:'Power Automate   onboarding flow ready', c:'term-dim'}],
+      [{t:'\u2714 ', c:'term-teal'}, {t:'Deployed \u00B7 0 errors', c:'term-sand'}]
     ];
 
     function renderStatic(){
